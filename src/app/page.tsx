@@ -1,69 +1,69 @@
-import Image from "next/image";
+import Header from "@/components/layout/Header";
+import Hero from "@/components/sections/Hero";
+import Opportunity from "@/components/sections/Opportunity";
+import Workstreams from "@/components/sections/Workstreams";
+import Platform from "@/components/sections/Platform";
+import LivingLab from "@/components/sections/LivingLab";
+import Partners from "@/components/sections/Partners";
+import PilotPathway from "@/components/sections/PilotPathway";
+import ResilientImpact from "@/components/sections/ResilientImpact";
+import Vision from "@/components/sections/Vision";
+import WorkshopForm from "@/components/sections/WorkshopForm";
+import Footer from "@/components/layout/Footer";
+import { cacheLife } from "next/cache";
 
-export default function Home() {
+export default async function Home() {
+  "use cache";
+  cacheLife("days");
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="min-h-screen flex flex-col bg-[#FAF9F6] text-[#0A192F]">
+      {/* Skip to Main Content Link for Accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#B8860B] focus:text-white focus:rounded focus:shadow"
+      >
+        Skip to main content
+      </a>
+
+      {/* Slim, Sticky Institutional Header */}
+      <Header />
+
+      {/* Main Content Area */}
+      <main id="main-content" className="flex-1">
+        {/* 1. Hero: Smarter spaces for a more resilient Australia */}
+        <Hero />
+
+        {/* 2. The Opportunity: From complex buildings to lasting value */}
+        <Opportunity />
+
+        {/* 3. Five Workstreams: One connected approach */}
+        <Workstreams />
+
+        {/* 4. Our Platform: A connected platform for the entire lifecycle */}
+        <Platform />
+
+        {/* 5. The Living Laboratory: Real assets. Real learning. Real impact */}
+        <LivingLab />
+
+        {/* 6. Partner Ecosystem: Collaboration at every stage */}
+        <Partners />
+
+        {/* 7. From Pilot to Scale: A structured adoption pathway */}
+        <PilotPathway />
+
+        {/* 8. A More Resilient Australia: Spaces that perform today and tomorrow */}
+        <ResilientImpact />
+
+        {/* 9. Progressive Vision: Five-year growth pathway */}
+        <Vision />
+
+        {/* 10. Final CTA & 90-Minute Workshop Request Form */}
+        <WorkshopForm />
       </main>
+
+      {/* Institutional Footer */}
+      <Footer />
     </div>
   );
 }
