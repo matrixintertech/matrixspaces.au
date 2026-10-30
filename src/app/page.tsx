@@ -1,14 +1,14 @@
 import Header from "@/components/layout/Header";
 import Hero from "@/components/sections/Hero";
-import Opportunity from "@/components/sections/Opportunity";
-import Workstreams from "@/components/sections/Workstreams";
-import Platform from "@/components/sections/Platform";
-import LivingLab from "@/components/sections/LivingLab";
-import Partners from "@/components/sections/Partners";
-import PilotPathway from "@/components/sections/PilotPathway";
-import ResilientImpact from "@/components/sections/ResilientImpact";
-import Vision from "@/components/sections/Vision";
-import WorkshopForm from "@/components/sections/WorkshopForm";
+import LifecycleFlow from "@/components/sections/LifecycleFlow";
+import Capabilities from "@/components/sections/Capabilities";
+import PlatformWorkflow from "@/components/sections/PlatformWorkflow";
+import AssetIntelligenceUI from "@/components/sections/AssetIntelligenceUI";
+import PhysicalSystems from "@/components/sections/PhysicalSystems";
+import PreventiveCare from "@/components/sections/PreventiveCare";
+import LivingLabSection from "@/components/sections/LivingLabSection";
+import EcosystemSection from "@/components/sections/EcosystemSection";
+import PlatformCTA from "@/components/sections/PlatformCTA";
 import Footer from "@/components/layout/Footer";
 import { cacheLife } from "next/cache";
 
@@ -18,7 +18,7 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF9F6] text-[#0A192F]">
-      {/* Skip to Main Content Link for Accessibility */}
+      {/* Accessibility Skip Link */}
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#B8860B] focus:text-white focus:rounded focus:shadow"
@@ -26,43 +26,43 @@ export default async function Home() {
         Skip to main content
       </a>
 
-      {/* Slim, Sticky Institutional Header */}
+      {/* Modern Product Header */}
       <Header />
 
-      {/* Main Content Area */}
+      {/* Main Product-Oriented Homepage Flow */}
       <main id="main-content" className="flex-1">
-        {/* 1. Hero: Smarter spaces for a more resilient Australia */}
+        {/* A. Hero: Smarter spaces. Connected assets. Better built environments. */}
         <Hero />
 
-        {/* 2. The Opportunity: From complex buildings to lasting value */}
-        <Opportunity />
+        {/* B. The Built Environment, Connected: Lifecycle sequence */}
+        <LifecycleFlow />
 
-        {/* 3. Five Workstreams: One connected approach */}
-        <Workstreams />
+        {/* C. Five Integrated Platform Capabilities */}
+        <Capabilities />
 
-        {/* 4. Our Platform: A connected platform for the entire lifecycle */}
-        <Platform />
+        {/* D. How the Platform Works in Practice: 6-step integrated workflow */}
+        <PlatformWorkflow />
 
-        {/* 5. The Living Laboratory: Real assets. Real learning. Real impact */}
-        <LivingLab />
+        {/* E. Asset Intelligence: Conceptual Digital Product Experience */}
+        <AssetIntelligenceUI />
 
-        {/* 6. Partner Ecosystem: Collaboration at every stage */}
-        <Partners />
+        {/* F. Physical Systems: Industrialised Interiors & Retrofit Kits */}
+        <PhysicalSystems />
 
-        {/* 7. From Pilot to Scale: A structured adoption pathway */}
-        <PilotPathway />
+        {/* G. Preventive Asset Care: Scheduled inspections & whole-of-life stewardship */}
+        <PreventiveCare />
 
-        {/* 8. A More Resilient Australia: Spaces that perform today and tomorrow */}
-        <ResilientImpact />
+        {/* H. The Living Laboratory: Applied research testbed & demonstration */}
+        <LivingLabSection />
 
-        {/* 9. Progressive Vision: Five-year growth pathway */}
-        <Vision />
+        {/* I. Partner Ecosystem: Collaborative innovation across 4 sectors */}
+        <EcosystemSection />
 
-        {/* 10. Final CTA & 90-Minute Workshop Request Form */}
-        <WorkshopForm />
+        {/* J. Platform Engagement & Consultation Request Form */}
+        <PlatformCTA />
       </main>
 
-      {/* Institutional Footer */}
+      {/* Enterprise Platform Footer */}
       <Footer />
     </div>
   );

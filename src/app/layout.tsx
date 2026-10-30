@@ -79,9 +79,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${cormorant.variable} ${plusJakarta.variable} font-sans scroll-smooth`}
     >
-      <body className="min-h-screen flex flex-col bg-[#FAF9F6] text-[#0A192F] selection:bg-[#B8860B]/20">
+      <body
+        suppressHydrationWarning
+        className="min-h-screen flex flex-col bg-[#FAF9F6] text-[#0A192F] selection:bg-[#B8860B]/20"
+      >
         {children}
       </body>
     </html>

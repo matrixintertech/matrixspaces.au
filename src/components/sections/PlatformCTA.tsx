@@ -5,25 +5,26 @@ import {
   Send,
   CheckCircle2,
   AlertCircle,
-  Clock,
   Building,
   Mail,
   User,
   Phone,
   ChevronDown,
+  Sparkles,
 } from "lucide-react";
 
-const INTEREST_AREAS = [
-  "Industrialised interiors",
-  "Retrofit solutions",
-  "Asset intelligence",
-  "Preventive asset care",
-  "Living laboratory",
-  "Research and industry collaboration",
-  "Other",
+const TOPICS = [
+  "Platform overview & architecture demonstration",
+  "Industrialised interior components & DfMA",
+  "Retrofit packages for occupied estates",
+  "Digital asset intelligence & QR/NFC tagging",
+  "Preventive asset care & lifecycle modeling",
+  "Living Laboratory testbed participation",
+  "Industry manufacturing & technical partnership",
+  "General inquiry",
 ];
 
-export default function WorkshopForm() {
+export default function PlatformCTA() {
   const [formData, setFormData] = useState({
     fullName: "",
     organisation: "",
@@ -56,7 +57,7 @@ export default function WorkshopForm() {
     }
 
     if (!formData.areaOfInterest) {
-      errs.areaOfInterest = "Please select your primary area of interest.";
+      errs.areaOfInterest = "Please select a discussion topic.";
     }
 
     setErrors(errs);
@@ -83,7 +84,7 @@ export default function WorkshopForm() {
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.error || "Failed to submit workshop request.");
+        throw new Error(data.error || "Failed to submit enquiry.");
       }
 
       setSubmitSuccess(data.message);
@@ -103,72 +104,60 @@ export default function WorkshopForm() {
 
   return (
     <section
-      id="workshop-form"
+      id="contact"
       className="py-24 lg:py-32 bg-white relative border-b border-[#E2E8F0]"
     >
       <div className="w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Workshop Information */}
+          {/* Left Column: Platform Invitation */}
           <div className="lg:col-span-5 space-y-6">
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-[#B8860B]">
-              <span>Next Steps</span>
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Engage the Platform</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#0A192F] leading-tight">
-              Shape the next generation of spaces.
+              Transform how your estate is built, tracked, and cared for.
             </h2>
 
             <p className="text-base sm:text-lg text-[#475569] leading-relaxed">
-              Explore a collaboration opportunity, discuss a potential pilot, or learn more
-              about Matrix Spaces Australia.
+              Whether you are managing a campus estate, upgrading public assets, or manufacturing
+              next-generation building products, we invite you to discuss how the Matrix Spaces Australia
+              platform can support your built-environment objectives.
             </p>
 
-            {/* What Happens in the Workshop Box */}
+            {/* Direct Contact Channels */}
             <div className="p-6 rounded-2xl bg-[#FAF9F6] border border-[#E2E8F0] space-y-4">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-white border border-[#E2E8F0] text-[#B8860B] flex items-center justify-center">
-                  <Clock className="w-4 h-4" />
+              <span className="text-xs uppercase font-mono font-semibold tracking-wider text-[#64748B] block">
+                Direct Inquiries & Coordination
+              </span>
+
+              <div className="space-y-2.5 text-xs text-[#334155]">
+                <div className="flex items-center gap-2.5">
+                  <Mail className="w-4 h-4 text-[#B8860B]" />
+                  <a
+                    href="mailto:enquiries@matrixspaces.com.au"
+                    className="hover:text-[#0A192F] font-medium hover:underline"
+                  >
+                    enquiries@matrixspaces.com.au
+                  </a>
                 </div>
-                <h3 className="text-sm font-semibold text-[#0A192F]">
-                  About the 90-Minute Collaboration Workshop
-                </h3>
+                <div className="flex items-center gap-2.5">
+                  <Building className="w-4 h-4 text-[#B8860B]" />
+                  <span>Melbourne & Sydney, Australia</span>
+                </div>
               </div>
 
-              <p className="text-xs text-[#475569] leading-relaxed">
-                Structured for university property directors, campus planners, asset managers,
-                and industry leaders. During the session, we review:
-              </p>
-
-              <ul className="text-xs text-[#334155] space-y-2">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B8860B] shrink-0 mt-0.5" />
-                  <span>Your estate challenges, refurbishment backlogs, and sustainability mandates.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B8860B] shrink-0 mt-0.5" />
-                  <span>Applicability of industrialised interior components and retrofit kits.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B8860B] shrink-0 mt-0.5" />
-                  <span>Potential Living Laboratory co-design and pilot testbed parameters.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B8860B] shrink-0 mt-0.5" />
-                  <span>Clear next steps with no immediate capital commitment.</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="text-xs text-[#64748B] leading-relaxed">
-              <strong className="text-[#0A192F]">Direct Coordination: </strong>
-              Enquiries are directly reviewed by the Matrix Spaces Australia founding team.
-              We respond to institutional requests within two business days.
+              <div className="pt-3 border-t border-[#EAE5D9] text-[11px] text-[#64748B] leading-relaxed">
+                Platform briefings and pilot discovery workshops are conducted with institutional property leaders,
+                campus planners, and technical partners.
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Enquiry Form */}
+          {/* Right Column: Interactive Consultation Request Form */}
           <div className="lg:col-span-7">
-            <div className="bg-[#FAF9F6] rounded-2xl border border-[#E2E8F0] p-7 sm:p-9 shadow-xs">
+            <div className="bg-[#FAF9F6] rounded-2xl border border-[#E2E8F0] p-7 sm:p-9 shadow-2xs">
               {submitSuccess ? (
                 /* Success State */
                 <div
@@ -180,7 +169,7 @@ export default function WorkshopForm() {
                     <CheckCircle2 className="w-7 h-7" />
                   </div>
                   <h3 className="font-serif text-2xl font-bold text-[#0A192F]">
-                    Workshop Request Received
+                    Inquiry Received
                   </h3>
                   <p className="text-sm text-[#475569] max-w-md mx-auto leading-relaxed">
                     {submitSuccess}
@@ -204,9 +193,9 @@ export default function WorkshopForm() {
                           message: "",
                         });
                       }}
-                      className="text-xs font-semibold uppercase tracking-wider text-[#B8860B] hover:underline"
+                      className="text-xs font-semibold uppercase tracking-wider text-[#B8860B] hover:underline cursor-pointer"
                     >
-                      Submit another enquiry
+                      Submit another inquiry
                     </button>
                   </div>
                 </div>
@@ -215,10 +204,10 @@ export default function WorkshopForm() {
                 <form onSubmit={handleSubmit} noValidate className="space-y-5">
                   <div className="border-b border-[#EAE5D9] pb-4 mb-2">
                     <h3 className="text-lg font-serif font-bold text-[#0A192F]">
-                      Arrange a 90-Minute Collaboration Workshop
+                      Request a Platform Briefing or Consultation
                     </h3>
                     <p className="text-xs text-[#64748B] mt-0.5">
-                      Please provide your details to coordinate a tailored discovery session.
+                      Please provide your details to arrange a tailored discussion with the platform team.
                     </p>
                   </div>
 
@@ -252,10 +241,9 @@ export default function WorkshopForm() {
                             setFormData({ ...formData, fullName: e.target.value });
                             if (errors.fullName) setErrors({ ...errors, fullName: "" });
                           }}
-                          placeholder="Dr. Sarah Campbell"
+                          placeholder="e.g. Dr. Sarah Campbell"
                           aria-invalid={!!errors.fullName}
-                          aria-describedby={errors.fullName ? "fullName-error" : undefined}
-                          className={`w-full pl-9 pr-3.5 py-2.5 text-xs bg-white rounded-lg border text-[#0A192F] placeholder:text-[#94A3B8] focus:bg-white transition-colors ${
+                          className={`w-full pl-9 pr-3.5 py-2.5 text-xs bg-white rounded-lg border text-[#0A192F] placeholder:text-[#94A3B8] transition-colors ${
                             errors.fullName
                               ? "border-red-400 focus:border-red-500"
                               : "border-[#CBD5E1] focus:border-[#B8860B]"
@@ -263,9 +251,7 @@ export default function WorkshopForm() {
                         />
                       </div>
                       {errors.fullName && (
-                        <p id="fullName-error" className="text-[11px] text-red-600">
-                          {errors.fullName}
-                        </p>
+                        <p className="text-[11px] text-red-600">{errors.fullName}</p>
                       )}
                     </div>
 
@@ -287,10 +273,9 @@ export default function WorkshopForm() {
                             setFormData({ ...formData, organisation: e.target.value });
                             if (errors.organisation) setErrors({ ...errors, organisation: "" });
                           }}
-                          placeholder="e.g. University Campus Estates"
+                          placeholder="e.g. Campus Property Division"
                           aria-invalid={!!errors.organisation}
-                          aria-describedby={errors.organisation ? "org-error" : undefined}
-                          className={`w-full pl-9 pr-3.5 py-2.5 text-xs bg-white rounded-lg border text-[#0A192F] placeholder:text-[#94A3B8] focus:bg-white transition-colors ${
+                          className={`w-full pl-9 pr-3.5 py-2.5 text-xs bg-white rounded-lg border text-[#0A192F] placeholder:text-[#94A3B8] transition-colors ${
                             errors.organisation
                               ? "border-red-400 focus:border-red-500"
                               : "border-[#CBD5E1] focus:border-[#B8860B]"
@@ -298,14 +283,12 @@ export default function WorkshopForm() {
                         />
                       </div>
                       {errors.organisation && (
-                        <p id="org-error" className="text-[11px] text-red-600">
-                          {errors.organisation}
-                        </p>
+                        <p className="text-[11px] text-red-600">{errors.organisation}</p>
                       )}
                     </div>
                   </div>
 
-                  {/* Work Email and Phone */}
+                  {/* Email and Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <label
@@ -325,10 +308,9 @@ export default function WorkshopForm() {
                             setFormData({ ...formData, email: e.target.value });
                             if (errors.email) setErrors({ ...errors, email: "" });
                           }}
-                          placeholder="s.campbell@university.edu.au"
+                          placeholder="s.campbell@institution.edu.au"
                           aria-invalid={!!errors.email}
-                          aria-describedby={errors.email ? "email-error" : undefined}
-                          className={`w-full pl-9 pr-3.5 py-2.5 text-xs bg-white rounded-lg border text-[#0A192F] placeholder:text-[#94A3B8] focus:bg-white transition-colors ${
+                          className={`w-full pl-9 pr-3.5 py-2.5 text-xs bg-white rounded-lg border text-[#0A192F] placeholder:text-[#94A3B8] transition-colors ${
                             errors.email
                               ? "border-red-400 focus:border-red-500"
                               : "border-[#CBD5E1] focus:border-[#B8860B]"
@@ -336,9 +318,7 @@ export default function WorkshopForm() {
                         />
                       </div>
                       {errors.email && (
-                        <p id="email-error" className="text-[11px] text-red-600">
-                          {errors.email}
-                        </p>
+                        <p className="text-[11px] text-red-600">{errors.email}</p>
                       )}
                     </div>
 
@@ -363,13 +343,13 @@ export default function WorkshopForm() {
                     </div>
                   </div>
 
-                  {/* Area of Interest Dropdown */}
+                  {/* Discussion Topic Dropdown */}
                   <div className="space-y-1.5">
                     <label
                       htmlFor="areaOfInterest"
                       className="block text-xs font-semibold text-[#0A192F]"
                     >
-                      Primary Area of Interest <span className="text-red-500">*</span>
+                      Primary Topic of Discussion <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
                       <select
@@ -381,26 +361,23 @@ export default function WorkshopForm() {
                           if (errors.areaOfInterest) setErrors({ ...errors, areaOfInterest: "" });
                         }}
                         aria-invalid={!!errors.areaOfInterest}
-                        aria-describedby={errors.areaOfInterest ? "aoi-error" : undefined}
-                        className={`w-full px-3.5 py-2.5 text-xs bg-white rounded-lg border text-[#0A192F] appearance-none focus:bg-white transition-colors cursor-pointer ${
+                        className={`w-full px-3.5 py-2.5 text-xs bg-white rounded-lg border text-[#0A192F] appearance-none transition-colors cursor-pointer ${
                           errors.areaOfInterest
                             ? "border-red-400 focus:border-red-500"
                             : "border-[#CBD5E1] focus:border-[#B8860B]"
                         }`}
                       >
-                        <option value="">Select an area of interest...</option>
-                        {INTEREST_AREAS.map((area) => (
-                          <option key={area} value={area}>
-                            {area}
+                        <option value="">Select a topic...</option>
+                        {TOPICS.map((t) => (
+                          <option key={t} value={t}>
+                            {t}
                           </option>
                         ))}
                       </select>
                       <ChevronDown className="w-4 h-4 text-[#94A3B8] absolute right-3 top-3 pointer-events-none" />
                     </div>
                     {errors.areaOfInterest && (
-                      <p id="aoi-error" className="text-[11px] text-red-600">
-                        {errors.areaOfInterest}
-                      </p>
+                      <p className="text-[11px] text-red-600">{errors.areaOfInterest}</p>
                     )}
                   </div>
 
@@ -410,44 +387,40 @@ export default function WorkshopForm() {
                       htmlFor="message"
                       className="block text-xs font-semibold text-[#0A192F]"
                     >
-                      Context or Initial Enquiries{" "}
+                      Estate Context or Specific Objectives{" "}
                       <span className="text-[#94A3B8] font-normal">(optional)</span>
                     </label>
-                    <div className="relative">
-                      <textarea
-                        id="message"
-                        rows={3}
-                        value={formData.message}
-                        onChange={(e) =>
-                          setFormData({ ...formData, message: e.target.value })
-                        }
-                        placeholder="Tell us briefly about your facility, research interests, or proposed timeline..."
-                        className="w-full p-3 text-xs bg-white rounded-lg border border-[#CBD5E1] text-[#0A192F] placeholder:text-[#94A3B8] focus:border-[#B8860B] transition-colors"
-                      />
-                    </div>
+                    <textarea
+                      id="message"
+                      rows={3}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Briefly describe your estate, building typology, or area of interest..."
+                      className="w-full p-3 text-xs bg-white rounded-lg border border-[#CBD5E1] text-[#0A192F] placeholder:text-[#94A3B8] focus:border-[#B8860B] transition-colors"
+                    />
                   </div>
 
                   {/* Submit Button */}
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 text-xs uppercase tracking-wider font-semibold rounded bg-[#B8860B] text-white hover:bg-[#9E7309] shadow-sm transition-all duration-200 disabled:opacity-60 cursor-pointer"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 text-xs uppercase tracking-wider font-semibold rounded-lg bg-[#B8860B] text-white hover:bg-[#9E7309] shadow-sm transition-all duration-200 disabled:opacity-60 cursor-pointer"
                   >
                     {isLoading ? (
                       <div className="flex items-center gap-2">
                         <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        <span>Submitting Request...</span>
+                        <span>Sending Request...</span>
                       </div>
                     ) : (
                       <>
-                        <span>Arrange a 90-minute collaboration workshop</span>
+                        <span>Submit Consultation Request</span>
                         <Send className="w-3.5 h-3.5" />
                       </>
                     )}
                   </button>
 
                   <p className="text-[11px] text-center text-[#64748B] pt-1">
-                    Your institutional details remain strictly confidential and will only be used to coordinate this session.
+                    Your details remain strictly confidential and will only be used to coordinate this discussion.
                   </p>
                 </form>
               )}
